@@ -2,9 +2,20 @@ import React,{useState} from 'react'
 import { useForm } from "react-hook-form";
 import {useRouter} from 'next/router'
 
-const Modal = ({open, closeModal, postId}) => {
+interface FormDataType {
+  title: string,
+  content: string
+}
+
+interface PropsModal {
+  open: boolean,
+  closeModal: any,
+  postId: string
+}
+
+const Modal = ({open, closeModal, postId}: PropsModal) => {
     const { register, handleSubmit, reset } = useForm();
-    const [FormData, setFormData] = useState('');
+    const [FormData, setFormData] = useState<FormDataType | "">('');
     const router = useRouter()
 
     const refreshData = () => {
@@ -13,7 +24,7 @@ const Modal = ({open, closeModal, postId}) => {
     console.log(postId)
 
 
-    async function update(id, data: FormDataType) {
+    async function update(id: string, data: FormDataType) {
         try{
           fetch(`http://localhost:3000/api/notes/${id}`,{
             body: JSON.stringify(data),
@@ -40,7 +51,7 @@ const Modal = ({open, closeModal, postId}) => {
   }
 
     
-  const onSubmit = async (data: FormDataType) => {
+  const onSubmit = async (data: any) => {
     setFormData(data)
     handleSub(postId, data)
   }

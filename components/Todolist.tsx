@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 
+interface NoteProps {
+  notes: any,
+  deleteNote: any,
+  openModal: any
+}
 
-
-const Todolist = ({notes, deleteNote, openModal}) => {
+const Todolist = ({notes, deleteNote, openModal}: NoteProps) => {
   
   return (
     <div>
-      {notes.map(note => {
+      {notes.map((note: any) => {
 
         if(note.title.length > 50){
           note.title = note.title.slice(0,50)

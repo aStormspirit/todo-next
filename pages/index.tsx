@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import { useState, useReducer } from 'react';
 import { useForm } from "react-hook-form";
 import Todolist from '../components/Todolist'
@@ -12,10 +12,10 @@ interface FormDataType {
 }
 
 
-function reducer(state, action) {
+function reducer(state: any, action: any) {
   switch (action.type) {
     case 'open':
-      return {open: true, id: action.payload};
+      return {open: !state.open, id: action.payload};
     case 'close':
       return {open: false, id: 0}
     default:
@@ -23,7 +23,7 @@ function reducer(state, action) {
   }
 }
 
-const Home: NextPage = ({notes}) => {
+const Home: NextPage = ({notes}: any) => {
 
   const [state, dispatch] = useReducer(reducer, {open: false, id: 0});
 
@@ -76,12 +76,12 @@ const Home: NextPage = ({notes}) => {
     }
   }
 
-  const onSubmit = async (data: FormDataType) => {
+  const onSubmit = async (data: any) => {
     setFormData(data)
     handleSub(data)
   }
 
-  function openModal(id){
+  function openModal(id: string){
     dispatch({type: 'open', payload: id})
   }
 
