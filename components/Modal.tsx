@@ -26,7 +26,7 @@ const Modal = ({open, closeModal, postId}: PropsModal) => {
 
     async function update(id: string, data: FormDataType) {
         try{
-          fetch(`http://localhost:3000/api/notes/${id}`,{
+          fetch(`http://127.0.0.1:3000/api/notes/${id}`,{
             body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json"

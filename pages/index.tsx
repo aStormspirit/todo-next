@@ -37,7 +37,7 @@ const Home: NextPage = ({notes}: any) => {
 
   async function deleteNote(id: string) {
     try{
-      fetch(`http://localhost:3000/api/notes/${id}`,{
+      fetch(`http://127.0.0.1:3000/api/notes/${id}`,{
         headers: {
           "Content-Type": "application/json"
         },
@@ -52,7 +52,7 @@ const Home: NextPage = ({notes}: any) => {
   
   async function create(data: FormDataType) {
     try{
-      fetch('http://localhost:3000/api/create',{
+      fetch('http://127.0.0.1:3000/api/create',{
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json"
