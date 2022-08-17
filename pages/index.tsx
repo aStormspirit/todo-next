@@ -39,7 +39,11 @@ const Home: NextPage = ({notes}: any) => {
     try{
       fetch(`https://127.0.0.1:3000/api/notes/${id}`,{
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
         },
         method: 'DELETE'
           }).then(()=> {
@@ -55,7 +59,11 @@ const Home: NextPage = ({notes}: any) => {
       fetch('https://127.0.0.1:3000/api/create',{
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": "true",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+          "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
         },
         method: 'POST'
           }).then(()=> {
