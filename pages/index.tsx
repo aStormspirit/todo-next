@@ -36,8 +36,9 @@ const Home: NextPage = ({notes}: any) => {
   }
 
   async function deleteNote(id: string) {
+    
     try{
-      fetch(`https://127.0.0.1:3000/api/notes/${id}`,{
+      fetch(`/api/notes/${id}`,{
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Credentials": "true",
@@ -51,12 +52,12 @@ const Home: NextPage = ({notes}: any) => {
           })
     }catch(err){
       console.log(err)
-    }    
+    }
   }
   
   async function create(data: FormDataType) {
     try{
-      fetch('https://127.0.0.1:3000/api/create',{
+      fetch('/api/create',{
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
