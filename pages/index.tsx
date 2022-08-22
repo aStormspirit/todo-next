@@ -99,11 +99,11 @@ const Home: NextPage = ({notes}: any) => {
   }
 
   return (
-    <div className="grid grid-cols-5 grid-rows-3">
-      <div className='col-span-2'>
+    <div className="grid grid-cols-5 grid-rows-2">
+      <div className='col-span-5 md:col-span-2'>
         <Todolist notes={notes} deleteNote={deleteNote} openModal={openModal}/>
       </div>
-      <div className='col-start-4 row-start-2'>
+      <div className='col-span-5 md:col-start-4 row-start-2'>
         <h1 className='text-center font-bold text-2xl mt-4'>Список дел</h1>
         <form onSubmit={handleSubmit(onSubmit)} className='w-auto min-w[25%] max-w-min mx-auto space-y-6 flex flex-col items-strech bg-yellow-400 p-10 rounded'>
           <h2 className='text-center font-bold text-xl'>Добавить задачу</h2>
