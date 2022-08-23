@@ -1,5 +1,5 @@
 import type { GetServerSideProps, NextPage } from 'next'
-import { useState, useReducer } from 'react'
+import { useState, useReducer, FC } from 'react'
 import { useForm } from 'react-hook-form'
 import Todolist from '../components/Todolist'
 import { prisma } from '../lib/prisma'
@@ -36,7 +36,7 @@ function reducer(
   }
 }
 
-const Home: NextPage = ({ notes }: any) => {
+const Home: FC<DataProps> = ({ notes }: DataProps) => {
   const [state, dispatch] = useReducer(reducer, { open: false, id: 0 })
 
   const { register, handleSubmit, reset } = useForm()
